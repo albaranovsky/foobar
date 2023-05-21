@@ -1,32 +1,49 @@
 <!doctype html>
 <html lang="ru">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="{{ url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container bg-light border my-5">
-        <div class="row">
-            <div class="col-md-2 mx-auto bg-info">
-              <h3>Center Text!</h3>
-            </div>
+    <title>Foobar demo</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css')}}"
+          rel="stylesheet">
+</head>
+<body>
+<div class="container bg-light border my-5">
+    <h1 class="my-3">Задача Foobar</h1>
+    <p>
+        - Для каждого числа, делящегося на 3, программа должна выводить строку
+        "foo"<br>
+        - Для каждого числа, делящегося на 5, программа должна выводить строку
+        "bar"<br>
+        - Для каждого числа, делящегося и на 3 и на 5, программа должна выводить
+        строку "foobar"
+    </p>
+    <form class="py-2" method="post">
+        <label for="input-nums" class="form-label">Список чисел:</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control"
+                   placeholder="Введите числа, разделенные пробелом (например: 5 22 15), или нажмите 'Сгенерировать'"
+                   id="input-nums" name="input-nums"
+                   {% if input_nums %}
+                   value="{{ input_nums }}"
+                   {% endif %}>
+            <button class="btn btn-secondary" type="submit"
+                    id="button-generate" name="button-generate">Сгенерировать
+            </button>
         </div>
-        <h1>Foobar!</h1>
-        <p>
-            - Для каждого числа, делящегося на 3, программа должна выводить строку "foo"<br>
-            - Для каждого числа, делящегося на 5, программа должна выводить строку "bar"<br>
-            - Для каждого числа, делящегося и на 3 и на 5, программа должна выводить строку "foobar"
-        </p>
-        <form class="py-2">
-            <div class="mb-3">
-              <label for="inputNums" class="form-label">Числа</label>
-              <input type="text" class="form-control" id="inputNums">
-              <div id="numslHelp" class="form-text">Введите числа, разделенные пробелом или запятой. Например: 5 22 15 или 5,22,15.</div>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-    </div>
-  </body>
+        <button type="submit" class="btn btn-primary" name="button-submit">
+            Foobar!
+        </button>
+    </form>
+</div>
+{% if answer %}
+<div class="container bg-dark text-light font-monospace border my-5">
+    <ul class="my-2">
+        {% for item in answer %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+</body>
 </html>
