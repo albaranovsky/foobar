@@ -8,6 +8,8 @@
 
 Развёрнутый проект (при первом открытии ссылки возможна задержка до 60 секунд): [https://foobar-6qgv.onrender.com](https://foobar-6qgv.onrender.com)
 
+[![Create and publish a Docker image](https://github.com/albaranovsky/foobar/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/albaranovsky/foobar/actions/workflows/docker-publish.yml)
+
 ## Запуск проекта в контейнере Docker
 Скачать образ и запустить контейнер:
 
@@ -51,7 +53,7 @@ pip install -r requirements.txt
 Запустить сервер:
 
 ```shell
-gunicorn app:app 
+gunicorn app:app
 ```
 
 Открыть в браузере ссылку: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
